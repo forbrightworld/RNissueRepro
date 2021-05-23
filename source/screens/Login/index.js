@@ -24,7 +24,13 @@ const Login = () => {
 
     const onSubmit = () => {
         if (form.userName && form.password) {
-            loginUser(form)(authDispatch);
+//             loginUser(form)(authDispatch);
+            AsyncStorage.setItem('token', '123456');
+            AsyncStorage.setItem('user', JSON.stringify({user : 'test'}));
+            authDispatch({
+                type: LOGIN_SUCCESS,
+                payload: {user : 'test'},
+            });
         }
     };
 
