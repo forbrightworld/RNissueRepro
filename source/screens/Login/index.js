@@ -2,9 +2,15 @@ import {useRoute} from '@react-navigation/native'
 import React, {useState, useEffect, useContext} from 'react';
 import { Alert } from 'react-native';
 import LoginComponent from '../../components/Login';
-import loginUser from '../../context/actions/auth/loginUser';
+// import loginUser from '../../context/actions/auth/loginUser';
 // import googleSignInUser from '../../context/actions/auth/googleSignInUser';
 import { GlobalContext } from '../../context/Provider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+    LOGIN_FAIL,
+    LOGIN_LOADING,
+    LOGIN_SUCCESS,
+} from '../../constants/actionTypes';
 
 const Login = () => {
     const [form, setForm] = useState({});
